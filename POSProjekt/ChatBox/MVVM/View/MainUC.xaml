@@ -40,6 +40,14 @@
                             
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Background="Transparent" BorderBrush="Transparent" Click="Button_Click_2">
+                                <TextBlock Margin="30 0 0 0" Text="Feedback" VerticalAlignment="Center" Foreground="White" />
+                            </Button>
+
+                        </StackPanel>
+                    </ListViewItem>
 
 
 
@@ -56,7 +64,7 @@
                       IsReadOnly="True"
                      />
 
-            <ListView ItemsSource="{Binding ChatUsers }" SelectedItem="{Binding Path=SelectedUser, UpdateSourceTrigger=PropertyChanged}" >
+            <ListView ItemsSource="{Binding ChatUsers , UpdateSourceTrigger=PropertyChanged }" SelectedItem="{Binding Path=SelectedUser, UpdateSourceTrigger=PropertyChanged}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Username , UpdateSourceTrigger=PropertyChanged}"></TextBlock>

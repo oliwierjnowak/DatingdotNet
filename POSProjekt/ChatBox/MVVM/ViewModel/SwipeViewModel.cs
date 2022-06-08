@@ -23,7 +23,15 @@ namespace ChatBox.MVVM.ViewModel
         }
         public ObservableCollection<User> SwipeUsers { get; set; }
         public CurrentUserViewModel? CurrentUser { get; set; }
-        public string SwipeURL { get; set; }
+        private string _swipeURL;
+        public string SwipeURL {
+            get => _swipeURL;
+            set
+            {
+                _swipeURL = value;
+                OnPropertyChanged();
+            }
+        }
         public RelayCommand RightSwipe { get; set; }
         public RelayCommand LeftSwipe { get; set; }
         public SwipeViewModel(CurrentUserViewModel cuvm)
@@ -129,9 +137,12 @@ namespace ChatBox.MVVM.ViewModel
                     Username = randuser.Username
                 };
                 Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
+
+               
             }
             if (SwipeCurrentUser.Images.Count() > 0)
             {
+                
                 SwipeURL = SwipeCurrentUser.Images.FirstOrDefault().ImageUrl;
             }
             else

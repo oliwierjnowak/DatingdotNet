@@ -291,3 +291,7 @@ C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\Ch
 C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\ref\ChatBox.dll
 C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\SwipeUC.g.cs
 C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\SwipeUC.baml
+C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\RegisterUC.g.cs
+C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\RegisterUC.baml
+C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\FeedbackUC.g.cs
+C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\obj\Debug\net6.0-windows\MVVM\View\FeedbackUC.baml

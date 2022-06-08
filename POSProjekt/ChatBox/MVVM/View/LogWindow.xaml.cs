@@ -51,7 +51,9 @@ namespace ChatBox.MVVM.View
 
         private void testBut_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(mv.LoginVM.Username);
+            WindowContent.Children.Clear();
+            var view = new RegisterUC();
+            WindowContent.Children.Add(view);
         }
     }
 }

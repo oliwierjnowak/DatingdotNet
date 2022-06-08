@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ChatBox.MVVM.View.FeedbackUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChatBox.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="White" Grid.Column="1">
+            <TextBox x:Name="FeedbackTB" Text="{Binding FeedbackString, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="165,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="391" Height="190"/>
+            <Label Content="Write your Feedback" HorizontalAlignment="Left" Margin="290,65,0,0" VerticalAlignment="Top"/>
+            <Button Content="Send" Command="{Binding SendCommand}" HorizontalAlignment="Left" Margin="345,355,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

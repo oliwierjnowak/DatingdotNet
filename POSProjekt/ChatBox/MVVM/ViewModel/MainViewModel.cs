@@ -17,7 +17,7 @@ namespace ChatBox.MVVM.ViewModel
     public class MainViewModel : BaseViewModel
     {
         public SwipeViewModel svm { get;set; }
-
+        public FeedbackViewModel fvm { get;set; }
         public ObservableCollection<User> ChatUsers { get; set; }
         public ObservableCollection<UserModel> Users { get; set; }  
         private ObservableCollection<string> _messages;
@@ -221,6 +221,7 @@ namespace ChatBox.MVVM.ViewModel
 
          }
             svm = new SwipeViewModel(CurrentUser);
+            fvm = new FeedbackViewModel(CurrentUser);
         }
 
         public bool CanLogin()

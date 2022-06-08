@@ -80,8 +80,16 @@ namespace ChatBox.MVVM.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            sidePanel.Width = 40;
             maingrid.Children.Clear();
             maingrid.Children.Add(new MainUC(_mvm));
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            sidePanel.Width = 40;
+            maingrid.Children.Clear();
+            maingrid.Children.Add(new FeedbackUC(_mvm));
         }
     }
 }

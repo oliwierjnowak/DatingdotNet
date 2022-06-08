@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\onowa\Desktop\POSProjekt\POSProjekt\ChatBox\App.xaml
-4-901568861
+6-142070510
 
-24-1748822383
+291149429169
 2161087447872
-MVVM\View\LogWindow.xaml;MVVM\View\MainUC.xaml;MVVM\View\MainWindow.xaml;MVVM\View\SwipeUC.xaml;
+MVVM\View\FeedbackUC.xaml;MVVM\View\LogWindow.xaml;MVVM\View\MainUC.xaml;MVVM\View\MainWindow.xaml;MVVM\View\RegisterUC.xaml;MVVM\View\SwipeUC.xaml;
 
 True
 

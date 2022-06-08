@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\View\FeedbackUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\MainUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\RegisterUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\SwipeUC.xaml.cs">
@@ -18,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MVVM\View\FeedbackUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\LogWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -25,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\RegisterUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\SwipeUC.xaml">
