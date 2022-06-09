@@ -46,13 +46,13 @@ namespace ChatBox.MVVM.ViewModel
 
         public void SwipeRight()
         {
-            Console.WriteLine("swiperight");
+           
             //errors
             using (var db = new DatingDB())
             {
                 if (db.Chats.Any(x=> x.UserId1.Equals(CurrentUser.UserId) && x.UserId2.Equals(SwipeCurrentUser.UserId)))
                 {
-                    Console.WriteLine("matchhhhh");
+                   // Console.WriteLine("matchhhhh");
                     
                 }
                 else
@@ -77,7 +77,7 @@ namespace ChatBox.MVVM.ViewModel
                     while (ran == CurrentUser.UserId -1)
                     {
                         ran = rd.Next(db.Users.Count() - 1);
-                        Console.WriteLine("in der while: "+ran);
+                      //  Console.WriteLine("in der while: "+ran);
                     }
                 }
                
@@ -92,7 +92,7 @@ namespace ChatBox.MVVM.ViewModel
                     Password = randuser.Password,
                     Username=randuser.Username
                 };
-                Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
+              //  Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
             }
             if (SwipeCurrentUser.Images.Count() > 0)
             {
@@ -109,7 +109,7 @@ namespace ChatBox.MVVM.ViewModel
         }
         public void SwipeLeft()
         {
-            Console.WriteLine("swipeleft");
+          //  Console.WriteLine("swipeleft");
             //errors
             using (var db = new DatingDB())
             {
@@ -121,7 +121,7 @@ namespace ChatBox.MVVM.ViewModel
                     while (ran == CurrentUser.UserId - 1)
                     {
                         ran = rd.Next(db.Users.Count() - 1);
-                        Console.WriteLine("in der while: " + ran);
+                      //  Console.WriteLine("in der while: " + ran);
                     }
                 }
 
@@ -136,7 +136,7 @@ namespace ChatBox.MVVM.ViewModel
                     Password = randuser.Password,
                     Username = randuser.Username
                 };
-                Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
+              //  Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
 
                
             }

@@ -95,7 +95,7 @@ namespace ChatBox.MVVM.ViewModel
             _server.userDisconnectEvent += UserDisconnect;
             ConnectToServerCommand = new RelayCommand(o => ConnectAndLogin(), o => CanLogin());
             SendMessageCommand = new RelayCommand(o => Send(), o => !string.IsNullOrEmpty(Message));
-            HelloCommand = new RelayCommand(o => Console.WriteLine("Hello world"), o => true);
+           
            
 
         }
@@ -106,8 +106,7 @@ namespace ChatBox.MVVM.ViewModel
             var list = new List<string>();
             using (var db = new DatingDB())
             {
-                    Console.WriteLine(db.Chats.Count());
-                    Console.WriteLine(db.Messages.Count());
+                   
                 var chat = (from c in db.Chats
                             where c.UserId1.Equals(CurrentUser.UserId) && c.UserId2.Equals(SelectedUser.UserId)
                           select c).FirstOrDefault();
@@ -127,9 +126,7 @@ namespace ChatBox.MVVM.ViewModel
             _server.SendMessageToServer(MessageToXML().ToString());
             using (var db = new DatingDB())
             {
-                Console.WriteLine("CHATSSSS/////");
-
-                db.Chats.ToList().ForEach(chat => Console.WriteLine(chat.ChatId + "  usr 1:" + chat.UserId1 + "  User 2:" + chat.UserId2 + chat.Messages.Count()));
+               
                 /*für sender*/
                 var correctChat1 = (from c in db.Chats
                                     where c.UserId1.Equals(CurrentUser.UserId) && c.UserId2.Equals(SelectedUser.UserId)
@@ -167,7 +164,7 @@ namespace ChatBox.MVVM.ViewModel
                 Message
                 
                 );
-            Console.WriteLine(xml);
+           
             return xml;
         }
 

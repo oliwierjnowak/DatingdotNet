@@ -35,7 +35,7 @@ namespace ChatBox.MVVM.ViewModel
         {
             
 
-            sendWebHook(@"https://discord.com/api/webhooks/984243109422563341/q-Ak3aQesY8iNKX19MIda-DfNhlmUX99Zfd2wkH0psseLxj0mn0LSrWUnrju3kpgG89e");
+            sendWebHook(@"https://discord.com/api/webhooks/984339281235558462/5F4XCU82-CYux0nZTLLb-YF-Y9XPxMVrmRmtCBdLgNCvgr0j5EBLI2XVqQSjdJ4f0tKs");
             using (var db = new DatingDB())
             {
                 db.Feedbacks.Add(new Feedback()
