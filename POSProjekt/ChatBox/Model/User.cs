@@ -9,6 +9,7 @@ namespace ChatBox.Model
         {
             ChatUserId1Navigations = new HashSet<Chat>();
             ChatUserId2Navigations = new HashSet<Chat>();
+            Feedbacks = new HashSet<Feedback>();
             Images = new HashSet<Image>();
         }
 
@@ -18,6 +19,7 @@ namespace ChatBox.Model
 
         public virtual ICollection<Chat> ChatUserId1Navigations { get; set; }
         public virtual ICollection<Chat> ChatUserId2Navigations { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<Image> Images { get; set; }
     }
 }

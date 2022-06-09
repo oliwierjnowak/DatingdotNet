@@ -17,6 +17,7 @@ namespace ChatBox.Model
         }
 
         public virtual DbSet<Chat> Chats { get; set; } = null!;
+        public virtual DbSet<Feedback> Feedbacks { get; set; } = null!;
         public virtual DbSet<Image> Images { get; set; } = null!;
         public virtual DbSet<Message> Messages { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
@@ -52,6 +53,21 @@ namespace ChatBox.Model
                     .HasForeignKey(d => d.UserId2)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Chats__UserID2__2A4B4B5E");
+            });
+
+            modelBuilder.Entity<Feedback>(entity =>
+            {
+                entity.Property(e => e.Content)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Feedbacks)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Feedbacks__UserI__49C3F6B7");
             });
 
             modelBuilder.Entity<Image>(entity =>
