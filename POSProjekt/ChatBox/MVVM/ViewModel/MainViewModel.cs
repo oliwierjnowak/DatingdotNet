@@ -135,21 +135,26 @@ namespace ChatBox.MVVM.ViewModel
                 var correctChat2 = (from c in db.Chats
                                     where c.UserId2.Equals(CurrentUser.UserId) && c.UserId1.Equals(SelectedUser.UserId)
                                     select c).FirstOrDefault();
-                /*für sender*/
-                correctChat1.Messages.Add(new Message()
-                {
-                    Chat = correctChat1,
-                    ChatId = correctChat1.ChatId,
-                    Message1 = Message
-                });
-                /** für reciver **/
-                correctChat2.Messages.Add(new Message()
-                {
-                    Chat = correctChat1,
-                    ChatId = correctChat1.ChatId,
-                    Message1 = Message
-                });
                 
+                if(correctChat2 != null)
+                {
+                    /*für sender*/
+                    correctChat1.Messages.Add(new Message()
+                    {
+                        Chat = correctChat1,
+                        ChatId = correctChat1.ChatId,
+                        Message1 = Message
+                    });
+                    /** für reciver **/
+                    correctChat2.Messages.Add(new Message()
+                    {
+                        Chat = correctChat1,
+                        ChatId = correctChat1.ChatId,
+                        Message1 = Message
+                    });
+
+                }
+
                 db.SaveChanges();
                 LoadChat();
             }

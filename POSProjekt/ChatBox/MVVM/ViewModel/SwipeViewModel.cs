@@ -61,37 +61,43 @@ namespace ChatBox.MVVM.ViewModel
                     {
                         Messages = new List<Message>(),
                         UserId1 = CurrentUser.UserId,
-                         UserId2 = SwipeCurrentUser.UserId,
-                         UserId1Navigation = db.Users.FirstOrDefault(x=> x.UserId.Equals(CurrentUser.UserId)),
-                         UserId2Navigation = db.Users.FirstOrDefault(x => x.UserId.Equals(SwipeCurrentUser.UserId))
+                         UserId2 = SwipeCurrentUser.UserId
                     });
                     db.SaveChanges();
                 }
 
 
-                Random rd = new Random();  
+                Random rd = new Random();
                 //Admin1 ist in der list an der stelle 0 deswegen USERID-1
-                int ran = rd.Next(db.Users.Count() - 1);
-                if (ran == CurrentUser.UserId -1)
+
+                int idmax = db.Users.Max(x => x.UserId);
+                int ran = rd.Next(idmax+1);
+                if (ran == CurrentUser.UserId || !db.Users.Any(x=> x.UserId.Equals(ran)) || ran == 0)
                 {
-                    while (ran == CurrentUser.UserId -1)
+                    while (ran == CurrentUser.UserId || !db.Users.Any(x => x.UserId.Equals(ran)) || ran == 0)
                     {
-                        ran = rd.Next(db.Users.Count() - 1);
+                        ran = rd.Next(idmax+1);
                       //  Console.WriteLine("in der while: "+ran);
                     }
                 }
-               
-                var randuser = db.Users.ToList()[ran];
-
-                SwipeCurrentUser = new SwipeCurrentUserViewModel()
+                Console.WriteLine("cu:  "+CurrentUser.UserId);
+                Console.WriteLine("ran:  " + ran);
+                if (db.Users.Any(x=> x.UserId.Equals(ran)))
                 {
-                    UserId= randuser.UserId,
-                    ChatUserId1Nav = randuser.ChatUserId1Navigations,
-                    ChatUserId2Nav = randuser.ChatUserId2Navigations,
-                    Images = randuser.Images,
-                    Password = randuser.Password,
-                    Username=randuser.Username
-                };
+                    var randuser = db.Users.Where(x => x.UserId.Equals(ran)).FirstOrDefault();
+
+                    SwipeCurrentUser = new SwipeCurrentUserViewModel()
+                    {
+                        UserId = randuser.UserId,
+                        ChatUserId1Nav = randuser.ChatUserId1Navigations,
+                        ChatUserId2Nav = randuser.ChatUserId2Navigations,
+                        Images = randuser.Images,
+                        Password = randuser.Password,
+                        Username = randuser.Username
+                    };
+                }
+                
+
               //  Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
             }
             if (SwipeCurrentUser.Images.Count() > 0)
@@ -115,30 +121,39 @@ namespace ChatBox.MVVM.ViewModel
             {
                 Random rd = new Random();
                 //Admin1 ist in der list an der stelle 0 deswegen USERID-1
-                int ran = rd.Next(db.Users.Count() - 1);
-                if (ran == CurrentUser.UserId - 1)
+                int idmax = db.Users.Max(x => x.UserId);
+
+
+                int ran = rd.Next(idmax+1);
+
+                Console.WriteLine(CurrentUser.UserId);
+                Console.WriteLine("ran bevor while: "+ran);
+                if (ran == CurrentUser.UserId || !db.Users.Any(x => x.UserId.Equals(ran)) || ran == 0)
                 {
-                    while (ran == CurrentUser.UserId - 1)
+                    while (ran == CurrentUser.UserId || !db.Users.Any(x => x.UserId.Equals(ran)) || ran == 0)
                     {
-                        ran = rd.Next(db.Users.Count() - 1);
-                      //  Console.WriteLine("in der while: " + ran);
+                        ran = rd.Next(idmax+1);
+                         Console.WriteLine("in der while: "+ran);
                     }
                 }
 
-                var randuser = db.Users.ToList()[ran];
-
-                SwipeCurrentUser = new SwipeCurrentUserViewModel()
+                if (db.Users.Any(x => x.UserId.Equals(ran)))
                 {
-                    UserId = randuser.UserId,
-                    ChatUserId1Nav = randuser.ChatUserId1Navigations,
-                    ChatUserId2Nav = randuser.ChatUserId2Navigations,
-                    Images = randuser.Images,
-                    Password = randuser.Password,
-                    Username = randuser.Username
-                };
-              //  Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
+                    var randuser = db.Users.Where(x=> x.UserId.Equals(ran)).FirstOrDefault();
 
-               
+                    SwipeCurrentUser = new SwipeCurrentUserViewModel()
+                    {
+                        UserId = randuser.UserId,
+                        ChatUserId1Nav = randuser.ChatUserId1Navigations,
+                        ChatUserId2Nav = randuser.ChatUserId2Navigations,
+                        Images = randuser.Images,
+                        Password = randuser.Password,
+                        Username = randuser.Username
+                    };
+                }
+                //  Console.WriteLine("SwipeCurrentUser username:  " + SwipeCurrentUser.Username);
+
+
             }
             if (SwipeCurrentUser.Images.Count() > 0)
             {

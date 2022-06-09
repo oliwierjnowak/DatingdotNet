@@ -71,9 +71,13 @@ namespace ChatBox.MVVM.ViewModel
                 {
                     db.Users.Add(new User()
                     {
+                       // UserId = db.Users.Count() + 1,
                         Username = this.Username,
                         Password = this.Password,
-                        Images = toImageList()
+                        Images = toImageList(),
+                        ChatUserId1Navigations = new List<Chat>(),
+                        ChatUserId2Navigations = new List<Chat>(),
+                        Feedbacks = new List<Feedback>()
                     }) ;
                     db.SaveChanges();
                 }
